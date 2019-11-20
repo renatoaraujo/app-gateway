@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
+    "pretest": "eslint --ignore-path .gitignore .",
     "start": "nodemon ./bin/www"
   },
   "dependencies": {
@@ -14,6 +15,8 @@
     "pug": "^2.0.4"
   },
   "devDependencies": {
+    "eslint": "^6.6.0",
+    "eslint-config-strongloop": "^2.1.0",
     "nodemon": "^2.0.0"
   }
 }
