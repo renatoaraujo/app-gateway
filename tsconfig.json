@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
-    "target": "es2019",
+      "experimentalDecorators": true,
+    "target": "es2018",
     "module": "commonjs",
     "outDir": "./build",
     "strict": true,
