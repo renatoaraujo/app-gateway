@@ -13,12 +13,8 @@ export default class Component {
   public content: string = '';
 
   async loadContent() {
-    await fetch(this.uri)
-      .then((response) => {
-        return response.text();
-      })
-      .then((content) => {
-        this.content = content;
-      });
+    await fetch(this.uri).then((response) => response.text()).then((content) => {
+      this.content = content;
+    });
   }
 }

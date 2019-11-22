@@ -1,6 +1,6 @@
 import 'reflect-metadata';
 import { jsonObject, jsonMember, jsonArrayMember } from 'typedjson';
-import Component from "./Component";
+import Component from './Component';
 
 @jsonObject
 export default class Page {
