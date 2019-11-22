@@ -22,9 +22,11 @@ export default class PageResolver {
       const serializer = new TypedJSON(Page);
       const page = serializer.parse(fileContents);
 
-      if (page instanceof Page) {
-        this.page = page;
+      if (!(page instanceof Page)) {
+        throw Error('Error on Page Setup');
       }
+
+      this.page = page;
     } catch(err) {
       this.logger.addError(err);
     }
