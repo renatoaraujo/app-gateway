@@ -5,7 +5,7 @@ export default class HomeController {
   public get(req: Request, res: Response) {
 
     const pageResolver = new PageResolver('home');
-    const page = pageResolver.getPageData();
+    const page = pageResolver.page;
 
     res.status(200).render('home', {
       title: page.title,
