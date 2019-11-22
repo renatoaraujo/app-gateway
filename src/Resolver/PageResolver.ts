@@ -1,6 +1,7 @@
 import * as fs from 'fs';
 import Page from '../Model/Page';
 import { TypedJSON } from 'typedjson';
+import * as appRoot from 'app-root-path';
 
 export default class PageResolver {
   pageName: string;
@@ -12,14 +13,16 @@ export default class PageResolver {
   }
 
   private readConfiguration() {
-    const appRoot = require('app-root-path');
     const fileContents = fs.readFileSync(appRoot + '/cms/pages/' + this.pageName + '.json', 'utf8');
-    const serializer = new TypedJSON(Page);
 
-    let page = serializer.parse(fileContents);
-
-    if (page instanceof Page) {
-      this.page = page;
+    try {
+      const serializer = new TypedJSON(Page);
+      const page = serializer.parse(fileContents);
+      if (page instanceof Page) {
+        this.page = page;
+      }
+    } catch(err) {
+      console.error(err);
     }
   }
 
