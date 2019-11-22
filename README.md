@@ -27,6 +27,12 @@ Or just use npm script:
 $ npm start
 ```
 
+### Extra
+Quality check using ESLint
+```bash
+$ make quality-checkup
+```
+
 To see helpful commands run:
 ```bash
 $ make help

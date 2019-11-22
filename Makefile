@@ -36,3 +36,7 @@ compile: ## Compile TypeScript
 .PHONY: start
 start: ## Start the application
 	npm start
+
+.PHONY: quality-checkup
+quality-checkup: ## Start the application
+	npm run pretest
