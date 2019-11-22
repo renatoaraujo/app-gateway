@@ -1,4 +1,14 @@
 {
   "title": "Welcome to App Gateway!",
-  "path": "/"
+  "path": "/",
+  "components": [
+    {
+      "name": "header",
+      "uri": "http://localhost:3001"
+    },
+    {
+      "name": "header2",
+      "uri": "http://localhost:3001"
+    }
+  ]
 }

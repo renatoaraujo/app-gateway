@@ -2,22 +2,22 @@ import RootPath from 'app-root-path';
 import * as path from 'path';
 import { LoggerModes, Logger as OvernightLogger } from '@overnightjs/logger';
 import * as fs from 'fs';
-import moment from "moment";
+import moment from 'moment';
 
 export default class Logger {
   private readonly logger: OvernightLogger = new OvernightLogger();
 
-  public init() {
+  public setup() {
     const logsDir = path.join(RootPath.toString(), 'var', 'logs');
 
-    if (!fs.existsSync(logsDir)){
+    if (!fs.existsSync(logsDir)) {
       fs.mkdirSync(logsDir);
     }
 
-    const logFileName = moment().format('YYYY-M-d') + '.log';
+    const logFileName = `${moment().format('YYYY-M-d')}.log`;
     const logFilePath = path.join(logsDir, logFileName);
 
-    if (!fs.existsSync(logFilePath)){
+    if (!fs.existsSync(logFilePath)) {
       fs.openSync(logFilePath, 'w');
     }
 
