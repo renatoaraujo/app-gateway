@@ -1,9 +1,19 @@
-import { Request, Response } from 'express';
+import { Request, Response, NextFunction } from 'express';
+import PageResolver from '../Resolver/PageResolver';
 
 export default class HomeController {
-  public get(req: Request, res: Response) {
-    res.status(200).render('home', {
-      title: 'Home',
-    });
+  async get(req: Request, res: Response, next: NextFunction) {
+    try {
+      const pageResolver = new PageResolver('home');
+      await pageResolver.resolve();
+      const page = pageResolver.page;
+
+      res.status(200).render('home', {
+        title: page.title,
+        components: page.components,
+      });
+    } catch (err) {
+      next(err);
+    }
   }
 }
